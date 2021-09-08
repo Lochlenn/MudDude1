@@ -1,0 +1,14 @@
+C:\Users\lyser\source\repos\MudDude1\MudDude1\bin\Debug\MudDude1.exe.config
+C:\Users\lyser\source\repos\MudDude1\MudDude1\bin\Debug\MudDude1.exe
+C:\Users\lyser\source\repos\MudDude1\MudDude1\bin\Debug\MudDude1.pdb
+C:\Users\lyser\source\repos\MudDude1\MudDude1\obj\Debug\MudDude1.csproj.AssemblyReference.cache
+C:\Users\lyser\source\repos\MudDude1\MudDude1\obj\Debug\MudDude1.frmMain.resources
+C:\Users\lyser\source\repos\MudDude1\MudDude1\obj\Debug\MudDude1.Properties.Resources.resources
+C:\Users\lyser\source\repos\MudDude1\MudDude1\obj\Debug\MudDude1.frmSettings.resources
+C:\Users\lyser\source\repos\MudDude1\MudDude1\obj\Debug\MudDude1.csproj.GenerateResource.cache
+C:\Users\lyser\source\repos\MudDude1\MudDude1\obj\Debug\MudDude1.csproj.CoreCompileInputs.cache
+C:\Users\lyser\source\repos\MudDude1\MudDude1\obj\Debug\MudDude1.exe
+C:\Users\lyser\source\repos\MudDude1\MudDude1\obj\Debug\MudDude1.pdb
+C:\Users\lyser\source\repos\MudDude1\MudDude1\bin\Debug\MidlandSocketServer.dll
+C:\Users\lyser\source\repos\MudDude1\MudDude1\bin\Debug\MidlandSocketServer.pdb
+C:\Users\lyser\source\repos\MudDude1\MudDude1\obj\Debug\MudDude1.csproj.CopyComplete

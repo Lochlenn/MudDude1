@@ -1,0 +1,48 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MudDude1" GeneratedClassName="MudDude1">
+  <Profiles />
+  <Settings>
+    <Setting Name="STRING_SERVER_IP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10.0.1.1</Value>
+    </Setting>
+    <Setting Name="INT_SERVER_PORT" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">23</Value>
+    </Setting>
+    <Setting Name="STRING_USERID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">themudbot</Value>
+    </Setting>
+    <Setting Name="STRING_PASSWORD" Type="System.String" Scope="User">
+      <Value Profile="(Default)">thembpass</Value>
+    </Setting>
+    <Setting Name="STRING_LOGIN_USERNAME" Type="System.String" Scope="User">
+      <Value Profile="(Default)">user</Value>
+    </Setting>
+    <Setting Name="STRING_LOGIN_PASSWORD" Type="System.String" Scope="User">
+      <Value Profile="(Default)">assword</Value>
+    </Setting>
+    <Setting Name="STRING_PAUSE_STRING" Type="System.String" Scope="User">
+      <Value Profile="(Default)">(N)onstop, (Q)uit, or (C)ontinue?</Value>
+    </Setting>
+    <Setting Name="STRING_TOP_MENU" Type="System.String" Scope="User">
+      <Value Profile="(Default)">(TOP)</Value>
+    </Setting>
+    <Setting Name="CHAR_TRIGGER" Type="System.Char" Scope="User">
+      <Value Profile="(Default)">@</Value>
+    </Setting>
+    <Setting Name="CHAR_TRIGGER2" Type="System.Char" Scope="User">
+      <Value Profile="(Default)">!</Value>
+    </Setting>
+    <Setting Name="STRING_GO_COMMAND" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/go mmud</Value>
+    </Setting>
+    <Setting Name="STRING_CLEANUP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Please finish up and log off</Value>
+    </Setting>
+    <Setting Name="INT_CLEANUP_DURATION" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="IS_FIRST_RUN" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
