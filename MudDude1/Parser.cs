@@ -46,6 +46,9 @@ namespace MudDude1
             mClient.RaiseDisconnectEvent -= Disconnected;
             mClient.RaiseTextReceivedEvent -= PreParseIncomingData;
 
+            // unsubscribe from command processor events
+            mProcessor.RaiseSendCommandToHostEvent -= SendCommandToHostFromProcessor;
+
             isConnectedToHost = false;
             isLoggedInToServer = false;
             isInGame = false;
@@ -81,6 +84,9 @@ namespace MudDude1
             // subscribe to mClient events
             mClient.RaiseDisconnectEvent += Disconnected;
             mClient.RaiseTextReceivedEvent += PreParseIncomingData;
+
+            // subscribe to mProcessor events
+            mProcessor.RaiseSendCommandToHostEvent += SendCommandToHostFromProcessor;
         }
 
         public async Task TryConnect()
@@ -274,6 +280,14 @@ namespace MudDude1
             returnLine = returnLine.Replace(" ", "");
             returnLine = returnLine.Replace("", "");
             return returnLine;
+        }
+
+        private void SendCommandToHostFromProcessor(object sender, SendCommandToHostEventArgs scea)
+        {
+            if (mClient == null)
+                return;
+            
+            mClient.SendToServer(scea.CompleteCommandToSend + "\r");
         }
 
         public void OnRaiseUpdateOutputEvent(object sender, UpdateOutputEventArgs uoea)
