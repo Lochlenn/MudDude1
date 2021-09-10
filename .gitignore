@@ -2,3 +2,6 @@ MudDude1/bin/
 Backup/
 Packages/
 MudDude1/obj/
+*.exe
+*.pdb
+*.cache

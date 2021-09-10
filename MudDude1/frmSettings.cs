@@ -26,6 +26,7 @@ namespace MudDude1
             PopulateFields();
         }
 
+        // TODO *BUGFIX* check why this doesn't work
         private void frmSettings_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Escape)
@@ -58,12 +59,16 @@ namespace MudDude1
             MudDude1.Default.CHAR_TRIGGER = (char)cbTrigger1.SelectedItem;
             MudDude1.Default.CHAR_TRIGGER2 = (char)cbTrigger2.SelectedItem;
 
+            MudDude1.Default.INT_EVILPOINTS_FOR_EVIL = int.Parse(txtEPForEvil.Text);
+            MudDude1.Default.INT_RECONNECT_DELAY = int.Parse(txtReconnectDelay.Text);
+
             MudDude1.Default.STRING_GO_COMMAND = txtGoCMD.Text;
             MudDude1.Default.STRING_LOGIN_USERNAME = txtDetectUserID.Text;
             MudDude1.Default.STRING_LOGIN_PASSWORD = txtDetectPassword.Text;
             MudDude1.Default.STRING_PAUSE_STRING = txtDetectPauseString.Text;
             MudDude1.Default.STRING_TOP_MENU = txtDetectTopMenu.Text;
             MudDude1.Default.STRING_CLEANUP = txtDetectCleanup.Text;
+
 
             if (MudDude1.Default.IS_FIRST_RUN)
                 MudDude1.Default.IS_FIRST_RUN = false;
@@ -91,6 +96,9 @@ namespace MudDude1
             }
             cbTrigger2.SelectedItem = MudDude1.Default.CHAR_TRIGGER2;
 
+            txtEPForEvil.Text = MudDude1.Default.INT_EVILPOINTS_FOR_EVIL.ToString();
+            txtReconnectDelay.Text = MudDude1.Default.INT_RECONNECT_DELAY.ToString();
+
             txtGoCMD.Text = MudDude1.Default.STRING_GO_COMMAND;
             txtDetectUserID.Text = MudDude1.Default.STRING_LOGIN_USERNAME;
             txtDetectPassword.Text = MudDude1.Default.STRING_LOGIN_PASSWORD;
@@ -111,6 +119,7 @@ namespace MudDude1
                 return false;
             }
 
+            // !int.tryparse checks for invalid chars (IE. not numbers)
             // Port number validation, fails if not a whole number between 1 and 65535
             int tempInt;
             if (!int.TryParse(txtServerPort.Text, out tempInt) || 
@@ -122,8 +131,28 @@ namespace MudDude1
                 txtServerPort.Focus();
                 return false;
             }
+            
+            // EP validation, fails if not a whole number between 40 and 200
+            if (!int.TryParse(txtEPForEvil.Text, out tempInt) ||
+                int.Parse(txtEPForEvil.Text) < 40 || 
+                int.Parse(txtEPForEvil.Text) > 200)
+            {
+                MessageBox.Show("EP For Evil should be between 40 (outlaw) and 200 (fiend)");
+                txtEPForEvil.Focus();
+                return false;
+            }
 
-            // Check for empty fields
+            // reconnect delay validation, fails if not a whole number between 1 and 3600
+            if (!int.TryParse(txtReconnectDelay.Text, out tempInt) ||
+                int.Parse(txtReconnectDelay.Text) < 1 ||
+                int.Parse(txtReconnectDelay.Text) > 1200)
+            {
+                MessageBox.Show("Reconnect delay should be between 1 and 3600 seconds(1 hour)");
+                txtReconnectDelay.Focus();
+                return false;
+            }
+
+            // Check for empty fields, that aren't checked for validity
             if (txtUserID.Text == string.Empty || txtPassword.Text == string.Empty || txtGoCMD.Text == string.Empty ||
                 txtDetectUserID.Text == string.Empty || txtDetectTopMenu.Text == string.Empty || txtDetectPauseString.Text == string.Empty ||
                 txtDetectPassword.Text == string.Empty || txtDetectCleanup.Text == string.Empty)
@@ -132,11 +161,6 @@ namespace MudDude1
                 return false;
             }
             return true;
-        }
-
-        private void frmSettings_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
         }
     }
 }

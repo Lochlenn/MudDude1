@@ -56,6 +56,11 @@ namespace MudDude1
             this.lblTrigger2 = new System.Windows.Forms.Label();
             this.lblGoCommand = new System.Windows.Forms.Label();
             this.txtGoCMD = new System.Windows.Forms.TextBox();
+            this.lblEPForEvil = new System.Windows.Forms.Label();
+            this.txtEPForEvil = new System.Windows.Forms.TextBox();
+            this.lblReconnectDelay = new System.Windows.Forms.Label();
+            this.txtReconnectDelay = new System.Windows.Forms.TextBox();
+            this.lblReconnectDelaySeconds = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSettingsOk
@@ -63,7 +68,7 @@ namespace MudDude1
             this.btnSettingsOk.Location = new System.Drawing.Point(312, 444);
             this.btnSettingsOk.Name = "btnSettingsOk";
             this.btnSettingsOk.Size = new System.Drawing.Size(75, 23);
-            this.btnSettingsOk.TabIndex = 14;
+            this.btnSettingsOk.TabIndex = 15;
             this.btnSettingsOk.Text = "&OK";
             this.btnSettingsOk.UseVisualStyleBackColor = true;
             this.btnSettingsOk.Click += new System.EventHandler(this.btnSettingsOk_Click);
@@ -73,7 +78,7 @@ namespace MudDude1
             this.btnSettingsCancel.Location = new System.Drawing.Point(13, 444);
             this.btnSettingsCancel.Name = "btnSettingsCancel";
             this.btnSettingsCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnSettingsCancel.TabIndex = 13;
+            this.btnSettingsCancel.TabIndex = 14;
             this.btnSettingsCancel.Text = "&Cancel";
             this.btnSettingsCancel.UseVisualStyleBackColor = true;
             this.btnSettingsCancel.Click += new System.EventHandler(this.btnSettingsCancel_Click);
@@ -90,7 +95,7 @@ namespace MudDude1
             this.lblServerIP.Location = new System.Drawing.Point(10, 25);
             this.lblServerIP.Name = "lblServerIP";
             this.lblServerIP.Size = new System.Drawing.Size(70, 15);
-            this.lblServerIP.TabIndex = 3;
+            this.lblServerIP.TabIndex = 99;
             this.lblServerIP.Text = "Server IP:";
             this.lblServerIP.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
@@ -99,7 +104,7 @@ namespace MudDude1
             this.lblServerPort.Location = new System.Drawing.Point(10, 47);
             this.lblServerPort.Name = "lblServerPort";
             this.lblServerPort.Size = new System.Drawing.Size(70, 15);
-            this.lblServerPort.TabIndex = 5;
+            this.lblServerPort.TabIndex = 99;
             this.lblServerPort.Text = "Server Port:";
             this.lblServerPort.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
@@ -115,7 +120,7 @@ namespace MudDude1
             this.lblPassword.Location = new System.Drawing.Point(206, 48);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(70, 15);
-            this.lblPassword.TabIndex = 9;
+            this.lblPassword.TabIndex = 99;
             this.lblPassword.Text = "Password:";
             this.lblPassword.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
@@ -125,14 +130,14 @@ namespace MudDude1
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
-            this.txtPassword.TabIndex = 4;
+            this.txtPassword.TabIndex = 3;
             // 
             // lblUserID
             // 
             this.lblUserID.Location = new System.Drawing.Point(206, 26);
             this.lblUserID.Name = "lblUserID";
             this.lblUserID.Size = new System.Drawing.Size(70, 15);
-            this.lblUserID.TabIndex = 7;
+            this.lblUserID.TabIndex = 99;
             this.lblUserID.Text = "UserID:";
             this.lblUserID.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
@@ -149,7 +154,7 @@ namespace MudDude1
             this.lblDetectForUserID.Location = new System.Drawing.Point(10, 225);
             this.lblDetectForUserID.Name = "lblDetectForUserID";
             this.lblDetectForUserID.Size = new System.Drawing.Size(111, 13);
-            this.lblDetectForUserID.TabIndex = 11;
+            this.lblDetectForUserID.TabIndex = 99;
             this.lblDetectForUserID.Text = "String to send UserID:";
             // 
             // txtDetectUserID
@@ -157,14 +162,14 @@ namespace MudDude1
             this.txtDetectUserID.Location = new System.Drawing.Point(13, 239);
             this.txtDetectUserID.Name = "txtDetectUserID";
             this.txtDetectUserID.Size = new System.Drawing.Size(365, 20);
-            this.txtDetectUserID.TabIndex = 8;
+            this.txtDetectUserID.TabIndex = 9;
             // 
             // txtDetectPassword
             // 
             this.txtDetectPassword.Location = new System.Drawing.Point(13, 279);
             this.txtDetectPassword.Name = "txtDetectPassword";
             this.txtDetectPassword.Size = new System.Drawing.Size(365, 20);
-            this.txtDetectPassword.TabIndex = 9;
+            this.txtDetectPassword.TabIndex = 10;
             // 
             // lblDetectForPassword
             // 
@@ -172,7 +177,7 @@ namespace MudDude1
             this.lblDetectForPassword.Location = new System.Drawing.Point(10, 265);
             this.lblDetectForPassword.Name = "lblDetectForPassword";
             this.lblDetectForPassword.Size = new System.Drawing.Size(123, 13);
-            this.lblDetectForPassword.TabIndex = 13;
+            this.lblDetectForPassword.TabIndex = 99;
             this.lblDetectForPassword.Text = "String to send password:";
             // 
             // txtDetectPauseString
@@ -180,7 +185,7 @@ namespace MudDude1
             this.txtDetectPauseString.Location = new System.Drawing.Point(13, 319);
             this.txtDetectPauseString.Name = "txtDetectPauseString";
             this.txtDetectPauseString.Size = new System.Drawing.Size(365, 20);
-            this.txtDetectPauseString.TabIndex = 10;
+            this.txtDetectPauseString.TabIndex = 11;
             // 
             // lblDetectPauseString
             // 
@@ -188,7 +193,7 @@ namespace MudDude1
             this.lblDetectPauseString.Location = new System.Drawing.Point(10, 305);
             this.lblDetectPauseString.Name = "lblDetectPauseString";
             this.lblDetectPauseString.Size = new System.Drawing.Size(70, 13);
-            this.lblDetectPauseString.TabIndex = 15;
+            this.lblDetectPauseString.TabIndex = 99;
             this.lblDetectPauseString.Text = "Pause String:";
             // 
             // txtDetectTopMenu
@@ -196,7 +201,7 @@ namespace MudDude1
             this.txtDetectTopMenu.Location = new System.Drawing.Point(13, 359);
             this.txtDetectTopMenu.Name = "txtDetectTopMenu";
             this.txtDetectTopMenu.Size = new System.Drawing.Size(365, 20);
-            this.txtDetectTopMenu.TabIndex = 11;
+            this.txtDetectTopMenu.TabIndex = 12;
             // 
             // lblDetectTopMenu
             // 
@@ -204,7 +209,7 @@ namespace MudDude1
             this.lblDetectTopMenu.Location = new System.Drawing.Point(10, 345);
             this.lblDetectTopMenu.Name = "lblDetectTopMenu";
             this.lblDetectTopMenu.Size = new System.Drawing.Size(89, 13);
-            this.lblDetectTopMenu.TabIndex = 17;
+            this.lblDetectTopMenu.TabIndex = 99;
             this.lblDetectTopMenu.Text = "Top Menu String:";
             // 
             // txtDetectCleanup
@@ -212,7 +217,7 @@ namespace MudDude1
             this.txtDetectCleanup.Location = new System.Drawing.Point(13, 399);
             this.txtDetectCleanup.Name = "txtDetectCleanup";
             this.txtDetectCleanup.Size = new System.Drawing.Size(365, 20);
-            this.txtDetectCleanup.TabIndex = 12;
+            this.txtDetectCleanup.TabIndex = 13;
             // 
             // lblDetectCleanup
             // 
@@ -220,7 +225,7 @@ namespace MudDude1
             this.lblDetectCleanup.Location = new System.Drawing.Point(10, 385);
             this.lblDetectCleanup.Name = "lblDetectCleanup";
             this.lblDetectCleanup.Size = new System.Drawing.Size(135, 13);
-            this.lblDetectCleanup.TabIndex = 19;
+            this.lblDetectCleanup.TabIndex = 99;
             this.lblDetectCleanup.Text = "Cleanup Notification String:";
             // 
             // gbDetectionStrings
@@ -238,7 +243,7 @@ namespace MudDude1
             this.lblTrigger1.Location = new System.Drawing.Point(303, 86);
             this.lblTrigger1.Name = "lblTrigger1";
             this.lblTrigger1.Size = new System.Drawing.Size(43, 13);
-            this.lblTrigger1.TabIndex = 22;
+            this.lblTrigger1.TabIndex = 99;
             this.lblTrigger1.Text = "Trigger:";
             // 
             // cbTrigger1
@@ -255,7 +260,7 @@ namespace MudDude1
             this.cbTrigger1.Location = new System.Drawing.Point(349, 81);
             this.cbTrigger1.Name = "cbTrigger1";
             this.cbTrigger1.Size = new System.Drawing.Size(34, 21);
-            this.cbTrigger1.TabIndex = 5;
+            this.cbTrigger1.TabIndex = 6;
             // 
             // cbTrigger2
             // 
@@ -271,7 +276,7 @@ namespace MudDude1
             this.cbTrigger2.Location = new System.Drawing.Point(349, 110);
             this.cbTrigger2.Name = "cbTrigger2";
             this.cbTrigger2.Size = new System.Drawing.Size(34, 21);
-            this.cbTrigger2.TabIndex = 6;
+            this.cbTrigger2.TabIndex = 7;
             // 
             // lblTrigger2
             // 
@@ -279,13 +284,13 @@ namespace MudDude1
             this.lblTrigger2.Location = new System.Drawing.Point(264, 113);
             this.lblTrigger2.Name = "lblTrigger2";
             this.lblTrigger2.Size = new System.Drawing.Size(83, 13);
-            this.lblTrigger2.TabIndex = 24;
+            this.lblTrigger2.TabIndex = 99;
             this.lblTrigger2.Text = "Second Trigger:";
             // 
             // lblGoCommand
             // 
             this.lblGoCommand.AutoSize = true;
-            this.lblGoCommand.Location = new System.Drawing.Point(13, 141);
+            this.lblGoCommand.Location = new System.Drawing.Point(13, 151);
             this.lblGoCommand.Name = "lblGoCommand";
             this.lblGoCommand.Size = new System.Drawing.Size(217, 13);
             this.lblGoCommand.TabIndex = 26;
@@ -293,16 +298,62 @@ namespace MudDude1
             // 
             // txtGoCMD
             // 
-            this.txtGoCMD.Location = new System.Drawing.Point(14, 156);
+            this.txtGoCMD.Location = new System.Drawing.Point(14, 166);
             this.txtGoCMD.Name = "txtGoCMD";
             this.txtGoCMD.Size = new System.Drawing.Size(369, 20);
-            this.txtGoCMD.TabIndex = 7;
+            this.txtGoCMD.TabIndex = 8;
+            // 
+            // lblEPForEvil
+            // 
+            this.lblEPForEvil.AutoSize = true;
+            this.lblEPForEvil.Location = new System.Drawing.Point(18, 88);
+            this.lblEPForEvil.Name = "lblEPForEvil";
+            this.lblEPForEvil.Size = new System.Drawing.Size(62, 13);
+            this.lblEPForEvil.TabIndex = 99;
+            this.lblEPForEvil.Text = "EP For Evil:";
+            // 
+            // txtEPForEvil
+            // 
+            this.txtEPForEvil.Location = new System.Drawing.Point(87, 82);
+            this.txtEPForEvil.Name = "txtEPForEvil";
+            this.txtEPForEvil.Size = new System.Drawing.Size(100, 20);
+            this.txtEPForEvil.TabIndex = 4;
+            // 
+            // lblReconnectDelay
+            // 
+            this.lblReconnectDelay.AutoSize = true;
+            this.lblReconnectDelay.Location = new System.Drawing.Point(18, 116);
+            this.lblReconnectDelay.Name = "lblReconnectDelay";
+            this.lblReconnectDelay.Size = new System.Drawing.Size(93, 13);
+            this.lblReconnectDelay.TabIndex = 99;
+            this.lblReconnectDelay.Text = "Reconnect Delay:";
+            // 
+            // txtReconnectDelay
+            // 
+            this.txtReconnectDelay.Location = new System.Drawing.Point(117, 111);
+            this.txtReconnectDelay.Name = "txtReconnectDelay";
+            this.txtReconnectDelay.Size = new System.Drawing.Size(69, 20);
+            this.txtReconnectDelay.TabIndex = 5;
+            // 
+            // lblReconnectDelaySeconds
+            // 
+            this.lblReconnectDelaySeconds.AutoSize = true;
+            this.lblReconnectDelaySeconds.Location = new System.Drawing.Point(188, 115);
+            this.lblReconnectDelaySeconds.Name = "lblReconnectDelaySeconds";
+            this.lblReconnectDelaySeconds.Size = new System.Drawing.Size(47, 13);
+            this.lblReconnectDelaySeconds.TabIndex = 99;
+            this.lblReconnectDelaySeconds.Text = "seconds";
             // 
             // frmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(399, 479);
+            this.Controls.Add(this.lblReconnectDelaySeconds);
+            this.Controls.Add(this.txtReconnectDelay);
+            this.Controls.Add(this.lblReconnectDelay);
+            this.Controls.Add(this.txtEPForEvil);
+            this.Controls.Add(this.lblEPForEvil);
             this.Controls.Add(this.txtGoCMD);
             this.Controls.Add(this.lblGoCommand);
             this.Controls.Add(this.cbTrigger2);
@@ -337,7 +388,6 @@ namespace MudDude1
             this.Name = "frmSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Settings";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSettings_FormClosing);
             this.Load += new System.EventHandler(this.Settings_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmSettings_KeyPress);
             this.ResumeLayout(false);
@@ -374,5 +424,10 @@ namespace MudDude1
         private System.Windows.Forms.Label lblTrigger2;
         private System.Windows.Forms.Label lblGoCommand;
         private System.Windows.Forms.TextBox txtGoCMD;
+        private System.Windows.Forms.Label lblEPForEvil;
+        private System.Windows.Forms.TextBox txtEPForEvil;
+        private System.Windows.Forms.Label lblReconnectDelay;
+        private System.Windows.Forms.TextBox txtReconnectDelay;
+        private System.Windows.Forms.Label lblReconnectDelaySeconds;
     }
 }

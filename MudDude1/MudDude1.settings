@@ -47,5 +47,8 @@
     <Setting Name="INT_EVILPOINTS_FOR_EVIL" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">100</Value>
     </Setting>
+    <Setting Name="INT_RECONNECT_DELAY" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

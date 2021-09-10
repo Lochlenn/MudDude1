@@ -202,5 +202,17 @@ namespace MudDude1 {
                 this["INT_EVILPOINTS_FOR_EVIL"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public int INT_RECONNECT_DELAY {
+            get {
+                return ((int)(this["INT_RECONNECT_DELAY"]));
+            }
+            set {
+                this["INT_RECONNECT_DELAY"] = value;
+            }
+        }
     }
 }

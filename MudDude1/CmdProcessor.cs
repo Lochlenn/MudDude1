@@ -78,7 +78,7 @@ namespace MudDude1
             // if evil is requested, manually set evil points to INT_EVILPOINTS_FOR_EVIL
             // otherwise use the word from _command which will be 'good' 'neutral' or 'evil'
             if (_command == "evil")
-                completedCommandToSend = telepathHeader + "add evil " + MudDude1.Default.INT_EVILPOINTS_FOR_EVIL; //TODO add this setting to frmSettings, default is 100
+                completedCommandToSend = telepathHeader + "add evil " + MudDude1.Default.INT_EVILPOINTS_FOR_EVIL; 
             else
                 completedCommandToSend = telepathHeader + _command;
 

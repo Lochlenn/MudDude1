@@ -110,6 +110,7 @@ namespace MudDude1
             this.rtbOutput.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.rtbOutput.Location = new System.Drawing.Point(12, 57);
             this.rtbOutput.Name = "rtbOutput";
+            this.rtbOutput.ReadOnly = true;
             this.rtbOutput.Size = new System.Drawing.Size(851, 503);
             this.rtbOutput.TabIndex = 2;
             this.rtbOutput.Text = "";

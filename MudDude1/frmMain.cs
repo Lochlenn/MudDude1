@@ -28,8 +28,6 @@ namespace MudDude1
             lblConnected.Hide();
             lblLoggedIn.Hide();
             lblInGame.Hide();
-            
-
         }
 
         private void editSettingsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -127,10 +125,6 @@ namespace MudDude1
             }
         }
 
-        private void AppendTextMethod(string textToUpdate)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {

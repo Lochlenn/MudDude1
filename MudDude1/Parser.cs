@@ -36,12 +36,11 @@ namespace MudDude1
         {
             // concatenate strings to form reason, just for logging
             string error = "";
-            for (int i = 0; i < dcea.DisconnectReason.Length - 1; i++)
+            for (int i = 0; i < dcea.DisconnectReason.Length; i++)
             {
                 error += dcea.DisconnectReason[i] + " ";
             }
             Console.WriteLine(error);
-            isConnectedToHost = false;
 
             // unsubscribe from mClient events
             mClient.RaiseDisconnectEvent -= Disconnected;
@@ -63,7 +62,8 @@ namespace MudDude1
 
         private void SetReconnectTimer()
         {
-            reconnectTimer = new System.Timers.Timer(10000); // 10 seconds
+            // seconds to milliseconds
+            reconnectTimer = new System.Timers.Timer(MudDude1.Default.INT_RECONNECT_DELAY * 1000); 
             reconnectTimer.Enabled = true;
             reconnectTimer.Stop();
             reconnectTimer.Elapsed += ReconnectToHost;
