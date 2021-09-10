@@ -190,5 +190,17 @@ namespace MudDude1 {
                 this["IS_FIRST_RUN"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int INT_EVILPOINTS_FOR_EVIL {
+            get {
+                return ((int)(this["INT_EVILPOINTS_FOR_EVIL"]));
+            }
+            set {
+                this["INT_EVILPOINTS_FOR_EVIL"] = value;
+            }
+        }
     }
 }

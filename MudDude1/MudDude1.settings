@@ -44,5 +44,8 @@
     <Setting Name="IS_FIRST_RUN" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="INT_EVILPOINTS_FOR_EVIL" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

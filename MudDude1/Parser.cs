@@ -16,6 +16,7 @@ namespace MudDude1
         public EventHandler<UpdateOutputEventArgs> RaiseUpdateOutputEvent;
         public EventHandler<UpdateUIEventArgs> RaiseUpdateUIEvent;
         public EventHandler<CommandReceivedEventArgs> RaiseCommandReceivedEvent;
+        public EventHandler<HomeCheckEventArgs> RaiseHomeCheckEvent;
 
         private bool isConnectedToHost = false;
         private bool isLoggedInToServer = false;
@@ -191,18 +192,15 @@ namespace MudDude1
 
         private void CheckForPauseString(string _lineToCheck)
         {
-            
             if (_lineToCheck.ToLower().Trim().Contains(MudDude1.Default.STRING_PAUSE_STRING.ToLower()))
             {
                 mClient.SendToServer("\r");
             }
-                
         }
 
         // main body of parser
         private async Task ParseCleanLines(string _lineToParse)
         {
-
             string lineToParse = _lineToParse;
 
             // set long strings for ease of reading
@@ -213,12 +211,41 @@ namespace MudDude1
                 lineToParse.Contains(triggerString2))
             {
                 // Send command line to be split into executer/command
-                SplitCommand(lineToParse);
+                await SplitCommand(lineToParse);
             }
-            else if (false)
+            else if (lineToParse.Contains("Specific Monster:"))
             {
-                // TODO check for other things, like 'specific monster'
+                Console.WriteLine("Incoming Home Data");
+                await ParseIncomingHomeData(lineToParse);
             }
+        }
+
+        private async Task ParseIncomingHomeData(string _incomingData)
+        {
+            //Specific Monster: 59-Thrag [1/1]Last Killed: 07-SEP-21 14:30:30 (RG: 24)
+            string[] splitMonsterString = _incomingData.Split('-');
+            string mobNameDirty = splitMonsterString[1];
+            string[] splitNameString = mobNameDirty.Split('[');
+            mobNameDirty = splitNameString[0];
+            string mobNameClean = mobNameDirty.Trim(); // name
+            string[] splitLastKilledString = _incomingData.Split(']');
+            string lastKilledDirty = splitLastKilledString[1];
+            splitLastKilledString = lastKilledDirty.Split('(');
+            string regenTimeDirty = splitLastKilledString[1];
+            lastKilledDirty = splitLastKilledString[0];
+            string lastKilledString = lastKilledDirty.Remove(0, 12); //last killed
+            regenTimeDirty = regenTimeDirty.Remove(0, 4);
+            regenTimeDirty = regenTimeDirty.Trim(')');
+            int regenTime = int.Parse(regenTimeDirty);
+            
+            DateTime lastKilledDT = DateTime.Parse(lastKilledString);
+
+            TimeSpan ts = DateTime.Now.Subtract(lastKilledDT);
+            int hoursUntilRegen = regenTime - (int)ts.TotalHours; // hours until regen
+            bool reportedAlive = false;
+            if (_incomingData.Contains("[1/1]") || _incomingData.Contains("[2/2]"))
+                reportedAlive = true;
+            OnRaiseHomeCheckEvent(this, new HomeCheckEventArgs(mobNameClean, lastKilledString, regenTime, hoursUntilRegen, reportedAlive));
         }
 
         private async Task SplitCommand(string _capturedLine)
@@ -288,6 +315,16 @@ namespace MudDude1
                 return;
             
             mClient.SendToServer(scea.CompleteCommandToSend + "\r");
+        }
+
+        public void OnRaiseHomeCheckEvent(object sender, HomeCheckEventArgs hcea)
+        {
+            EventHandler<HomeCheckEventArgs> handler = RaiseHomeCheckEvent;
+
+            if (handler != null)
+            {
+                handler(this, hcea);
+            }
         }
 
         public void OnRaiseUpdateOutputEvent(object sender, UpdateOutputEventArgs uoea)
