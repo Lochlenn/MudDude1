@@ -214,5 +214,137 @@ namespace MudDude1 {
                 this["INT_RECONNECT_DELAY"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ALLOW_SET_EVIL {
+            get {
+                return ((bool)(this["ALLOW_SET_EVIL"]));
+            }
+            set {
+                this["ALLOW_SET_EVIL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ALLOW_SET_NEUTRAL {
+            get {
+                return ((bool)(this["ALLOW_SET_NEUTRAL"]));
+            }
+            set {
+                this["ALLOW_SET_NEUTRAL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ALLOW_SET_GOOD {
+            get {
+                return ((bool)(this["ALLOW_SET_GOOD"]));
+            }
+            set {
+                this["ALLOW_SET_GOOD"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ALLOW_SET_LAWFUL {
+            get {
+                return ((bool)(this["ALLOW_SET_LAWFUL"]));
+            }
+            set {
+                this["ALLOW_SET_LAWFUL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ALLOW_SET_UNLAWFUL {
+            get {
+                return ((bool)(this["ALLOW_SET_UNLAWFUL"]));
+            }
+            set {
+                this["ALLOW_SET_UNLAWFUL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ALLOW_SET_SAINT {
+            get {
+                return ((bool)(this["ALLOW_SET_SAINT"]));
+            }
+            set {
+                this["ALLOW_SET_SAINT"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int INT_CUSTOM_EP_NEUTRAL {
+            get {
+                return ((int)(this["INT_CUSTOM_EP_NEUTRAL"]));
+            }
+            set {
+                this["INT_CUSTOM_EP_NEUTRAL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-100")]
+        public int INT_CUSTOM_EP_GOOD {
+            get {
+                return ((int)(this["INT_CUSTOM_EP_GOOD"]));
+            }
+            set {
+                this["INT_CUSTOM_EP_GOOD"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool USE_CUSTOM_EP_EVIL {
+            get {
+                return ((bool)(this["USE_CUSTOM_EP_EVIL"]));
+            }
+            set {
+                this["USE_CUSTOM_EP_EVIL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool USE_CUSTOM_EP_NEUTRAL {
+            get {
+                return ((bool)(this["USE_CUSTOM_EP_NEUTRAL"]));
+            }
+            set {
+                this["USE_CUSTOM_EP_NEUTRAL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool USE_CUSTOM_EP_GOOD {
+            get {
+                return ((bool)(this["USE_CUSTOM_EP_GOOD"]));
+            }
+            set {
+                this["USE_CUSTOM_EP_GOOD"] = value;
+            }
+        }
     }
 }
