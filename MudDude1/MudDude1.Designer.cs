@@ -313,7 +313,7 @@ namespace MudDude1 {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool USE_CUSTOM_EP_EVIL {
             get {
                 return ((bool)(this["USE_CUSTOM_EP_EVIL"]));
@@ -344,6 +344,45 @@ namespace MudDude1 {
             }
             set {
                 this["USE_CUSTOM_EP_GOOD"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ALLOW_ANY_ALIGNMENT_CHANGES {
+            get {
+                return ((bool)(this["ALLOW_ANY_ALIGNMENT_CHANGES"]));
+            }
+            set {
+                this["ALLOW_ANY_ALIGNMENT_CHANGES"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int DEFAULT_EP_FOR_EVIL {
+            get {
+                return ((int)(this["DEFAULT_EP_FOR_EVIL"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int DEFAULT_EP_FOR_NEUTRAL {
+            get {
+                return ((int)(this["DEFAULT_EP_FOR_NEUTRAL"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-100")]
+        public int DEFAULT_EP_FOR_GOOD {
+            get {
+                return ((int)(this["DEFAULT_EP_FOR_GOOD"]));
             }
         }
     }

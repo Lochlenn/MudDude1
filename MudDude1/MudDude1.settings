@@ -75,13 +75,25 @@
       <Value Profile="(Default)">-100</Value>
     </Setting>
     <Setting Name="USE_CUSTOM_EP_EVIL" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="USE_CUSTOM_EP_NEUTRAL" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="USE_CUSTOM_EP_GOOD" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ALLOW_ANY_ALIGNMENT_CHANGES" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="DEFAULT_EP_FOR_EVIL" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="DEFAULT_EP_FOR_NEUTRAL" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="DEFAULT_EP_FOR_GOOD" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">-100</Value>
     </Setting>
   </Settings>
 </SettingsFile>

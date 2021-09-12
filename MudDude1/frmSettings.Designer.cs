@@ -60,32 +60,48 @@ namespace MudDude1
             this.txtReconnectDelay = new System.Windows.Forms.TextBox();
             this.lblReconnectDelaySeconds = new System.Windows.Forms.Label();
             this.tabSettings = new System.Windows.Forms.TabControl();
-            this.tabEvents = new System.Windows.Forms.TabPage();
             this.tabConSettings = new System.Windows.Forms.TabPage();
+            this.tabEvents = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabAlignSettings = new System.Windows.Forms.TabPage();
-            this.tabOptionalSettings = new System.Windows.Forms.TabPage();
-            this.txtEPForEvil = new System.Windows.Forms.TextBox();
+            this.chbAllowAlignmentChanges = new System.Windows.Forms.CheckBox();
+            this.btnSetAlignDefaults = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.gbxCustomValues = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtDefaultEPforGood = new System.Windows.Forms.TextBox();
+            this.txtDefaultEPforEvil = new System.Windows.Forms.TextBox();
+            this.txtDefaultEPforNeutral = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.chbCustomGood = new System.Windows.Forms.CheckBox();
+            this.chbCustomNeutral = new System.Windows.Forms.CheckBox();
+            this.chbCustomEvil = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtEPforGood = new System.Windows.Forms.TextBox();
             this.lblEPForEvil = new System.Windows.Forms.Label();
+            this.txtEPForEvil = new System.Windows.Forms.TextBox();
+            this.txtEPforNeutral = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.gbxToggles = new System.Windows.Forms.GroupBox();
             this.chbAllowEvil = new System.Windows.Forms.CheckBox();
+            this.chbAllowSaint = new System.Windows.Forms.CheckBox();
             this.chbAllowNeutral = new System.Windows.Forms.CheckBox();
+            this.chbAllowUnlawful = new System.Windows.Forms.CheckBox();
             this.chbAllowGood = new System.Windows.Forms.CheckBox();
             this.chbAllowLawful = new System.Windows.Forms.CheckBox();
-            this.chbAllowUnlawful = new System.Windows.Forms.CheckBox();
-            this.chbAllowSaint = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.tabOptionalSettings = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabSettings.SuspendLayout();
             this.tabConSettings.SuspendLayout();
+            this.tabEvents.SuspendLayout();
             this.tabAlignSettings.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.gbxCustomValues.SuspendLayout();
+            this.gbxToggles.SuspendLayout();
+            this.tabOptionalSettings.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSettingsOk
@@ -365,16 +381,6 @@ namespace MudDude1
             this.tabSettings.Size = new System.Drawing.Size(437, 488);
             this.tabSettings.TabIndex = 100;
             // 
-            // tabEvents
-            // 
-            this.tabEvents.BackColor = System.Drawing.SystemColors.Control;
-            this.tabEvents.Location = new System.Drawing.Point(4, 22);
-            this.tabEvents.Name = "tabEvents";
-            this.tabEvents.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEvents.Size = new System.Drawing.Size(416, 453);
-            this.tabEvents.TabIndex = 0;
-            this.tabEvents.Text = "Events";
-            // 
             // tabConSettings
             // 
             this.tabConSettings.BackColor = System.Drawing.SystemColors.Control;
@@ -413,32 +419,215 @@ namespace MudDude1
             this.tabConSettings.TabIndex = 1;
             this.tabConSettings.Text = "Connection Settings";
             // 
+            // tabEvents
+            // 
+            this.tabEvents.BackColor = System.Drawing.SystemColors.Control;
+            this.tabEvents.Controls.Add(this.label6);
+            this.tabEvents.Location = new System.Drawing.Point(4, 22);
+            this.tabEvents.Name = "tabEvents";
+            this.tabEvents.Padding = new System.Windows.Forms.Padding(3);
+            this.tabEvents.Size = new System.Drawing.Size(429, 462);
+            this.tabEvents.TabIndex = 0;
+            this.tabEvents.Text = "Events";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(160, 227);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(79, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Coming Soon...";
+            // 
             // tabAlignSettings
             // 
             this.tabAlignSettings.BackColor = System.Drawing.SystemColors.Control;
-            this.tabAlignSettings.Controls.Add(this.groupBox2);
-            this.tabAlignSettings.Controls.Add(this.groupBox1);
+            this.tabAlignSettings.Controls.Add(this.chbAllowAlignmentChanges);
+            this.tabAlignSettings.Controls.Add(this.btnSetAlignDefaults);
+            this.tabAlignSettings.Controls.Add(this.groupBox3);
+            this.tabAlignSettings.Controls.Add(this.label8);
+            this.tabAlignSettings.Controls.Add(this.gbxCustomValues);
+            this.tabAlignSettings.Controls.Add(this.gbxToggles);
             this.tabAlignSettings.Location = new System.Drawing.Point(4, 22);
             this.tabAlignSettings.Name = "tabAlignSettings";
             this.tabAlignSettings.Size = new System.Drawing.Size(429, 462);
             this.tabAlignSettings.TabIndex = 2;
             this.tabAlignSettings.Text = "Alignment Settings";
             // 
-            // tabOptionalSettings
+            // chbAllowAlignmentChanges
             // 
-            this.tabOptionalSettings.BackColor = System.Drawing.SystemColors.Control;
-            this.tabOptionalSettings.Location = new System.Drawing.Point(4, 22);
-            this.tabOptionalSettings.Name = "tabOptionalSettings";
-            this.tabOptionalSettings.Size = new System.Drawing.Size(416, 453);
-            this.tabOptionalSettings.TabIndex = 3;
-            this.tabOptionalSettings.Text = "Optional";
+            this.chbAllowAlignmentChanges.AutoSize = true;
+            this.chbAllowAlignmentChanges.Location = new System.Drawing.Point(29, 14);
+            this.chbAllowAlignmentChanges.Name = "chbAllowAlignmentChanges";
+            this.chbAllowAlignmentChanges.Size = new System.Drawing.Size(153, 17);
+            this.chbAllowAlignmentChanges.TabIndex = 121;
+            this.chbAllowAlignmentChanges.Text = "Enable Alignment Changes";
+            this.chbAllowAlignmentChanges.UseVisualStyleBackColor = true;
+            this.chbAllowAlignmentChanges.CheckedChanged += new System.EventHandler(this.chbAllowAlignmentChanges_CheckedChanged);
             // 
-            // txtEPForEvil
+            // btnSetAlignDefaults
             // 
-            this.txtEPForEvil.Location = new System.Drawing.Point(135, 51);
-            this.txtEPForEvil.Name = "txtEPForEvil";
-            this.txtEPForEvil.Size = new System.Drawing.Size(43, 20);
-            this.txtEPForEvil.TabIndex = 100;
+            this.btnSetAlignDefaults.Location = new System.Drawing.Point(30, 434);
+            this.btnSetAlignDefaults.Name = "btnSetAlignDefaults";
+            this.btnSetAlignDefaults.Size = new System.Drawing.Size(75, 23);
+            this.btnSetAlignDefaults.TabIndex = 120;
+            this.btnSetAlignDefaults.Text = "Defaults";
+            this.btnSetAlignDefaults.UseVisualStyleBackColor = true;
+            this.btnSetAlignDefaults.Click += new System.EventHandler(this.btnSetAlignDefaults_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Location = new System.Drawing.Point(203, 202);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(160, 157);
+            this.groupBox3.TabIndex = 118;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "EPs for Alignment";
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(18, 29);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(136, 118);
+            this.label9.TabIndex = 117;
+            this.label9.Text = "Saint: -220 to -201 Good:  -200 to -51 Neutral: -50 to 29 Seedy: 30 to 39 Outlaw:" +
+    " 40 to 79 Criminal: 80 to 119 Villain: 120 to 209 Fiend: 210 to 300";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label8.Location = new System.Drawing.Point(268, 14);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(89, 13);
+            this.label8.TabIndex = 115;
+            this.label8.Text = "Work In Progress";
+            // 
+            // gbxCustomValues
+            // 
+            this.gbxCustomValues.Controls.Add(this.label5);
+            this.gbxCustomValues.Controls.Add(this.txtDefaultEPforGood);
+            this.gbxCustomValues.Controls.Add(this.txtDefaultEPforEvil);
+            this.gbxCustomValues.Controls.Add(this.txtDefaultEPforNeutral);
+            this.gbxCustomValues.Controls.Add(this.label4);
+            this.gbxCustomValues.Controls.Add(this.label3);
+            this.gbxCustomValues.Controls.Add(this.chbCustomGood);
+            this.gbxCustomValues.Controls.Add(this.chbCustomNeutral);
+            this.gbxCustomValues.Controls.Add(this.chbCustomEvil);
+            this.gbxCustomValues.Controls.Add(this.label2);
+            this.gbxCustomValues.Controls.Add(this.txtEPforGood);
+            this.gbxCustomValues.Controls.Add(this.lblEPForEvil);
+            this.gbxCustomValues.Controls.Add(this.txtEPForEvil);
+            this.gbxCustomValues.Controls.Add(this.txtEPforNeutral);
+            this.gbxCustomValues.Controls.Add(this.label1);
+            this.gbxCustomValues.Location = new System.Drawing.Point(153, 56);
+            this.gbxCustomValues.Name = "gbxCustomValues";
+            this.gbxCustomValues.Size = new System.Drawing.Size(251, 128);
+            this.gbxCustomValues.TabIndex = 114;
+            this.gbxCustomValues.TabStop = false;
+            this.gbxCustomValues.Text = "Custom Values";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(137, 28);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(42, 13);
+            this.label5.TabIndex = 122;
+            this.label5.Text = "Custom";
+            // 
+            // txtDefaultEPforGood
+            // 
+            this.txtDefaultEPforGood.Enabled = false;
+            this.txtDefaultEPforGood.Location = new System.Drawing.Point(193, 97);
+            this.txtDefaultEPforGood.Name = "txtDefaultEPforGood";
+            this.txtDefaultEPforGood.Size = new System.Drawing.Size(43, 20);
+            this.txtDefaultEPforGood.TabIndex = 121;
+            this.txtDefaultEPforGood.Text = "-100";
+            // 
+            // txtDefaultEPforEvil
+            // 
+            this.txtDefaultEPforEvil.Enabled = false;
+            this.txtDefaultEPforEvil.Location = new System.Drawing.Point(193, 51);
+            this.txtDefaultEPforEvil.Name = "txtDefaultEPforEvil";
+            this.txtDefaultEPforEvil.Size = new System.Drawing.Size(43, 20);
+            this.txtDefaultEPforEvil.TabIndex = 119;
+            this.txtDefaultEPforEvil.Text = "100";
+            // 
+            // txtDefaultEPforNeutral
+            // 
+            this.txtDefaultEPforNeutral.Enabled = false;
+            this.txtDefaultEPforNeutral.Location = new System.Drawing.Point(193, 74);
+            this.txtDefaultEPforNeutral.Name = "txtDefaultEPforNeutral";
+            this.txtDefaultEPforNeutral.Size = new System.Drawing.Size(43, 20);
+            this.txtDefaultEPforNeutral.TabIndex = 120;
+            this.txtDefaultEPforNeutral.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(194, 28);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.TabIndex = 118;
+            this.label4.Text = "Default";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 28);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.TabIndex = 117;
+            this.label3.Text = "Enable?";
+            // 
+            // chbCustomGood
+            // 
+            this.chbCustomGood.AutoSize = true;
+            this.chbCustomGood.Location = new System.Drawing.Point(18, 100);
+            this.chbCustomGood.Name = "chbCustomGood";
+            this.chbCustomGood.Size = new System.Drawing.Size(15, 14);
+            this.chbCustomGood.TabIndex = 116;
+            this.chbCustomGood.UseVisualStyleBackColor = true;
+            this.chbCustomGood.CheckedChanged += new System.EventHandler(this.chbCustomGood_CheckedChanged);
+            // 
+            // chbCustomNeutral
+            // 
+            this.chbCustomNeutral.AutoSize = true;
+            this.chbCustomNeutral.Location = new System.Drawing.Point(18, 77);
+            this.chbCustomNeutral.Name = "chbCustomNeutral";
+            this.chbCustomNeutral.Size = new System.Drawing.Size(15, 14);
+            this.chbCustomNeutral.TabIndex = 115;
+            this.chbCustomNeutral.UseVisualStyleBackColor = true;
+            this.chbCustomNeutral.CheckedChanged += new System.EventHandler(this.chbCustomNeutral_CheckedChanged);
+            // 
+            // chbCustomEvil
+            // 
+            this.chbCustomEvil.AutoSize = true;
+            this.chbCustomEvil.Location = new System.Drawing.Point(18, 54);
+            this.chbCustomEvil.Name = "chbCustomEvil";
+            this.chbCustomEvil.Size = new System.Drawing.Size(15, 14);
+            this.chbCustomEvil.TabIndex = 114;
+            this.chbCustomEvil.UseVisualStyleBackColor = true;
+            this.chbCustomEvil.CheckedChanged += new System.EventHandler(this.chbCustomEvil_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(47, 100);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 13);
+            this.label2.TabIndex = 113;
+            this.label2.Text = "EP for @good:";
+            // 
+            // txtEPforGood
+            // 
+            this.txtEPforGood.Location = new System.Drawing.Point(135, 97);
+            this.txtEPforGood.Name = "txtEPforGood";
+            this.txtEPforGood.Size = new System.Drawing.Size(43, 20);
+            this.txtEPforGood.TabIndex = 112;
             // 
             // lblEPForEvil
             // 
@@ -448,6 +637,44 @@ namespace MudDude1
             this.lblEPForEvil.Size = new System.Drawing.Size(69, 13);
             this.lblEPForEvil.TabIndex = 101;
             this.lblEPForEvil.Text = "EP for @evil:";
+            // 
+            // txtEPForEvil
+            // 
+            this.txtEPForEvil.Location = new System.Drawing.Point(135, 51);
+            this.txtEPForEvil.Name = "txtEPForEvil";
+            this.txtEPForEvil.Size = new System.Drawing.Size(43, 20);
+            this.txtEPForEvil.TabIndex = 100;
+            // 
+            // txtEPforNeutral
+            // 
+            this.txtEPforNeutral.Location = new System.Drawing.Point(135, 74);
+            this.txtEPforNeutral.Name = "txtEPforNeutral";
+            this.txtEPforNeutral.Size = new System.Drawing.Size(43, 20);
+            this.txtEPforNeutral.TabIndex = 110;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(47, 77);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 13);
+            this.label1.TabIndex = 111;
+            this.label1.Text = "EP for @neutral:";
+            // 
+            // gbxToggles
+            // 
+            this.gbxToggles.Controls.Add(this.chbAllowEvil);
+            this.gbxToggles.Controls.Add(this.chbAllowSaint);
+            this.gbxToggles.Controls.Add(this.chbAllowNeutral);
+            this.gbxToggles.Controls.Add(this.chbAllowUnlawful);
+            this.gbxToggles.Controls.Add(this.chbAllowGood);
+            this.gbxToggles.Controls.Add(this.chbAllowLawful);
+            this.gbxToggles.Location = new System.Drawing.Point(20, 56);
+            this.gbxToggles.Name = "gbxToggles";
+            this.gbxToggles.Size = new System.Drawing.Size(111, 165);
+            this.gbxToggles.TabIndex = 109;
+            this.gbxToggles.TabStop = false;
+            this.gbxToggles.Text = "Toggleables";
             // 
             // chbAllowEvil
             // 
@@ -459,6 +686,16 @@ namespace MudDude1
             this.chbAllowEvil.Text = "Allow Evil?";
             this.chbAllowEvil.UseVisualStyleBackColor = true;
             // 
+            // chbAllowSaint
+            // 
+            this.chbAllowSaint.AutoSize = true;
+            this.chbAllowSaint.Location = new System.Drawing.Point(6, 134);
+            this.chbAllowSaint.Name = "chbAllowSaint";
+            this.chbAllowSaint.Size = new System.Drawing.Size(84, 17);
+            this.chbAllowSaint.TabIndex = 108;
+            this.chbAllowSaint.Text = "Allow Saint?";
+            this.chbAllowSaint.UseVisualStyleBackColor = true;
+            // 
             // chbAllowNeutral
             // 
             this.chbAllowNeutral.AutoSize = true;
@@ -468,6 +705,16 @@ namespace MudDude1
             this.chbAllowNeutral.TabIndex = 104;
             this.chbAllowNeutral.Text = "Allow Neutral?";
             this.chbAllowNeutral.UseVisualStyleBackColor = true;
+            // 
+            // chbAllowUnlawful
+            // 
+            this.chbAllowUnlawful.AutoSize = true;
+            this.chbAllowUnlawful.Location = new System.Drawing.Point(6, 111);
+            this.chbAllowUnlawful.Name = "chbAllowUnlawful";
+            this.chbAllowUnlawful.Size = new System.Drawing.Size(101, 17);
+            this.chbAllowUnlawful.TabIndex = 107;
+            this.chbAllowUnlawful.Text = "Allow Unlawful?";
+            this.chbAllowUnlawful.UseVisualStyleBackColor = true;
             // 
             // chbAllowGood
             // 
@@ -489,117 +736,24 @@ namespace MudDude1
             this.chbAllowLawful.Text = "Allow Lawful?";
             this.chbAllowLawful.UseVisualStyleBackColor = true;
             // 
-            // chbAllowUnlawful
+            // tabOptionalSettings
             // 
-            this.chbAllowUnlawful.AutoSize = true;
-            this.chbAllowUnlawful.Location = new System.Drawing.Point(6, 111);
-            this.chbAllowUnlawful.Name = "chbAllowUnlawful";
-            this.chbAllowUnlawful.Size = new System.Drawing.Size(101, 17);
-            this.chbAllowUnlawful.TabIndex = 107;
-            this.chbAllowUnlawful.Text = "Allow Unlawful?";
-            this.chbAllowUnlawful.UseVisualStyleBackColor = true;
+            this.tabOptionalSettings.BackColor = System.Drawing.SystemColors.Control;
+            this.tabOptionalSettings.Controls.Add(this.label7);
+            this.tabOptionalSettings.Location = new System.Drawing.Point(4, 22);
+            this.tabOptionalSettings.Name = "tabOptionalSettings";
+            this.tabOptionalSettings.Size = new System.Drawing.Size(429, 462);
+            this.tabOptionalSettings.TabIndex = 3;
+            this.tabOptionalSettings.Text = "Optional";
             // 
-            // chbAllowSaint
+            // label7
             // 
-            this.chbAllowSaint.AutoSize = true;
-            this.chbAllowSaint.Location = new System.Drawing.Point(6, 134);
-            this.chbAllowSaint.Name = "chbAllowSaint";
-            this.chbAllowSaint.Size = new System.Drawing.Size(84, 17);
-            this.chbAllowSaint.TabIndex = 108;
-            this.chbAllowSaint.Text = "Allow Saint?";
-            this.chbAllowSaint.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.chbAllowEvil);
-            this.groupBox1.Controls.Add(this.chbAllowSaint);
-            this.groupBox1.Controls.Add(this.chbAllowNeutral);
-            this.groupBox1.Controls.Add(this.chbAllowUnlawful);
-            this.groupBox1.Controls.Add(this.chbAllowGood);
-            this.groupBox1.Controls.Add(this.chbAllowLawful);
-            this.groupBox1.Location = new System.Drawing.Point(20, 56);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(111, 165);
-            this.groupBox1.TabIndex = 109;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Toggleables";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(135, 74);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(43, 20);
-            this.textBox1.TabIndex = 110;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(47, 77);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 13);
-            this.label1.TabIndex = 111;
-            this.label1.Text = "EP for @neutral:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(135, 97);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(43, 20);
-            this.textBox2.TabIndex = 112;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(47, 100);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 13);
-            this.label2.TabIndex = 113;
-            this.label2.Text = "EP for @good:";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.checkBox3);
-            this.groupBox2.Controls.Add(this.checkBox2);
-            this.groupBox2.Controls.Add(this.checkBox1);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.lblEPForEvil);
-            this.groupBox2.Controls.Add(this.txtEPForEvil);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(153, 61);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(251, 123);
-            this.groupBox2.TabIndex = 114;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Custom Values";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(13, 54);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 114;
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(13, 77);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(15, 14);
-            this.checkBox2.TabIndex = 115;
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(13, 100);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(15, 14);
-            this.checkBox3.TabIndex = 116;
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(167, 203);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Coming Soon...";
             // 
             // frmSettings
             // 
@@ -618,15 +772,22 @@ namespace MudDude1
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Settings";
             this.Load += new System.EventHandler(this.Settings_Load);
+            this.Shown += new System.EventHandler(this.frmSettings_Shown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmSettings_KeyPress);
             this.tabSettings.ResumeLayout(false);
             this.tabConSettings.ResumeLayout(false);
             this.tabConSettings.PerformLayout();
+            this.tabEvents.ResumeLayout(false);
+            this.tabEvents.PerformLayout();
             this.tabAlignSettings.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.tabAlignSettings.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.gbxCustomValues.ResumeLayout(false);
+            this.gbxCustomValues.PerformLayout();
+            this.gbxToggles.ResumeLayout(false);
+            this.gbxToggles.PerformLayout();
+            this.tabOptionalSettings.ResumeLayout(false);
+            this.tabOptionalSettings.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -676,14 +837,27 @@ namespace MudDude1
         private System.Windows.Forms.CheckBox chbAllowGood;
         private System.Windows.Forms.CheckBox chbAllowNeutral;
         private System.Windows.Forms.CheckBox chbAllowEvil;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.GroupBox gbxToggles;
+        private System.Windows.Forms.TextBox txtEPforGood;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtEPforNeutral;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.GroupBox gbxCustomValues;
+        private System.Windows.Forms.CheckBox chbCustomGood;
+        private System.Windows.Forms.CheckBox chbCustomNeutral;
+        private System.Windows.Forms.CheckBox chbCustomEvil;
+        private System.Windows.Forms.TextBox txtDefaultEPforGood;
+        private System.Windows.Forms.TextBox txtDefaultEPforEvil;
+        private System.Windows.Forms.TextBox txtDefaultEPforNeutral;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox chbAllowAlignmentChanges;
+        private System.Windows.Forms.Button btnSetAlignDefaults;
     }
 }
