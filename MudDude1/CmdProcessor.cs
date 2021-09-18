@@ -47,6 +47,18 @@ namespace MudDude1
                     commandType = CommandType.Align;
                     ProcessAlignmentCommand(crea.CommandExecuter, crea.CommandToBeExecuted);
                     break;
+                case "unlawful":
+                    commandType = CommandType.Align;
+                    ProcessAlignmentCommand(crea.CommandExecuter, crea.CommandToBeExecuted);
+                    break;
+                case "lawful":
+                    commandType = CommandType.Align;
+                    ProcessAlignmentCommand(crea.CommandExecuter, crea.CommandToBeExecuted);
+                    break;
+                case "saint":
+                    commandType = CommandType.Align;
+                    ProcessAlignmentCommand(crea.CommandExecuter, crea.CommandToBeExecuted);
+                    break;
                 case "life":
                     commandType = CommandType.Life;
                     ProcessLifeCommand(crea.CommandExecuter, crea.CommandToBeExecuted);
@@ -66,25 +78,35 @@ namespace MudDude1
             }
         }
 
-        private void ProcessAlignmentCommand(string _executer, string _command)
-        {
-            // build telepath header
-            string telepathHeader = "sys god " + _executer + " ";
+        // Old version, before configurable alignment settings
 
-            // set executer to neutral first in all cases
-            string completedCommandToSend = telepathHeader + "neutral";
-            OnRaiseSendCommandToHostEvent(this, new SendCommandToHostEventArgs(completedCommandToSend));
+        //private void ProcessAlignmentCommand(string _executer, string _command)
+        //{
+        //    if (!MudDude1.Default.ALLOW_ANY_ALIGNMENT_CHANGES)
+        //    {
+        //        OnRaiseSendCommandToHostEvent(this, new SendCommandToHostEventArgs(AssembleConfirmation(_executer, _command)));
+        //    }
+            
+        //    // build telepath header
+        //    string telepathHeader = "sys god " + _executer + " ";
+        //    string completedCommandToSend = telepathHeader + "neutral";
 
-            // if evil is requested, manually set evil points to INT_EVILPOINTS_FOR_EVIL
-            // otherwise use the word from _command which will be 'good' 'neutral' or 'evil'
-            if (_command == "evil")
-                completedCommandToSend = telepathHeader + "add evil " + MudDude1.Default.INT_EVILPOINTS_FOR_EVIL; 
-            else
-                completedCommandToSend = telepathHeader + _command;
+        //    if (MudDude1.Default.ALLOW_SET_EVIL || MudDude1.Default.ALLOW_SET_GOOD || MudDude1.Default.ALLOW_SET_NEUTRAL
+        //        || MudDude1.Default.ALLOW_SET_LAWFUL || MudDude1.Default.ALLOW_SET_UNLAWFUL || MudDude1.Default.ALLOW_SET_SAINT)
+        //    {
+	       //     OnRaiseSendCommandToHostEvent(this, new SendCommandToHostEventArgs(completedCommandToSend));
+        //    }
 
-            OnRaiseSendCommandToHostEvent(this, new SendCommandToHostEventArgs(completedCommandToSend));
-            OnRaiseSendCommandToHostEvent(this, new SendCommandToHostEventArgs(AssembleConfirmation(_executer, _command)));
-        }
+        //    // if evil is requested, manually set evil points to INT_EVILPOINTS_FOR_EVIL
+        //    // otherwise use the word from _command which will be 'good' 'neutral' or 'evil'
+        //    if (_command == "evil")
+        //        completedCommandToSend = telepathHeader + "add evil " + MudDude1.Default.INT_EVILPOINTS_FOR_EVIL; 
+        //    else
+        //        completedCommandToSend = telepathHeader + _command;
+
+        //    OnRaiseSendCommandToHostEvent(this, new SendCommandToHostEventArgs(completedCommandToSend));
+        //    OnRaiseSendCommandToHostEvent(this, new SendCommandToHostEventArgs(AssembleConfirmation(_executer, _command)));
+        //}
 
         private void ProcessLifeCommand(string _executer, string _command)
         {
@@ -147,6 +169,10 @@ namespace MudDude1
             {
                 case CommandType.Align:
                     postCommand = "Alignment change successful.";
+                    if (MudDude1.Default.ALLOW_ANY_ALIGNMENT_CHANGES == false)
+                        postCommand = "Alignment changes not allowed by server.";
+                    if (_command.ToLower().Contains("notallowed"))
+                        postCommand = "Selected Alignment not allowed by server.";
                     break;
                 case CommandType.Life:
                     postCommand = "Added 1 life.";
@@ -187,13 +213,12 @@ namespace MudDude1
                     if (mob.mobName.ToLower().Contains(_mobToLookUp.ToLower()))
                     {
                         // build room/map number portion of the lookup string
-                        lookupString += mob.roomNumber.ToString() + " " +
-                        mob.mapNumber.ToString();
+                        lookupString += mob.roomNumber.ToString() + " " + mob.mapNumber.ToString();
                         return lookupString;
                     }
                 }
             }
-            // return empty string so initial command can respond correctly
+            // return empty string so caller knows no record found
             return "";
             
         }
@@ -236,6 +261,75 @@ namespace MudDude1
             public int mapNumber { get; set; }
 
             public int roomNumber { get; set; }
+        }
+
+        private void ProcessAlignmentCommand(string _executer, string _command)
+        {
+            string commandToBuild = "sys god " + _executer + " ";
+            // if align changes are disabled, drop out asap
+            if (!MudDude1.Default.ALLOW_ANY_ALIGNMENT_CHANGES)
+            {
+                OnRaiseSendCommandToHostEvent(this, new SendCommandToHostEventArgs(AssembleConfirmation(_executer, _command)));
+                return;
+            }
+            else if (_command.ToLower() == "saint")
+            {
+                if (MudDude1.Default.ALLOW_SET_SAINT)
+                    commandToBuild += "saint";
+                else
+                    _command += "NOTALLOWED";
+            }
+
+            else if (_command.ToLower() == "lawful")
+            {
+                if (MudDude1.Default.ALLOW_SET_LAWFUL)
+                    commandToBuild += "lawful";
+                else
+                    _command += "NOTALLOWED";
+            }
+
+            else if (_command.ToLower() == "unlawful")
+            {
+                if (MudDude1.Default.ALLOW_SET_UNLAWFUL)
+                    commandToBuild += "unlawful";
+                else
+                    _command += "NOTALLOWED";
+            }
+
+            else if (_command.ToLower() == "good")
+            {
+                if (MudDude1.Default.ALLOW_SET_GOOD)
+                    commandToBuild += "add evil " + MudDude1.Default.INT_CUSTOM_EP_GOOD.ToString();
+                else
+                    _command += "NOTALLOWED";
+            }
+
+            else if (_command.ToLower() == "neutral")
+            {
+                if (MudDude1.Default.ALLOW_SET_NEUTRAL)
+                    commandToBuild += "add evil " + MudDude1.Default.INT_CUSTOM_EP_NEUTRAL.ToString();
+                else
+                    _command += "NOTALLOWED";
+            }
+
+            else if (_command.ToLower() == "evil")
+            {
+                if (MudDude1.Default.ALLOW_SET_EVIL)
+                    commandToBuild += "add evil " + MudDude1.Default.INT_EVILPOINTS_FOR_EVIL.ToString();
+                else
+                    _command += "NOTALLOWED";
+            }
+
+            if (_command.Contains("NOTALLOWED"))
+            {
+                OnRaiseSendCommandToHostEvent(this, new SendCommandToHostEventArgs(AssembleConfirmation(_executer, _command)));
+                return;
+            }
+            //TODO not quite working right, fully disabled isnt detected live
+            // first set to neutral, so we are working with an ep value of 0
+            OnRaiseSendCommandToHostEvent(this, new SendCommandToHostEventArgs("sys god " + _executer + " neutral"));
+            OnRaiseSendCommandToHostEvent(this, new SendCommandToHostEventArgs(commandToBuild));
+            OnRaiseSendCommandToHostEvent(this, new SendCommandToHostEventArgs(AssembleConfirmation(_executer, _command)));
         }
     }
 }

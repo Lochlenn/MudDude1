@@ -22,20 +22,32 @@ namespace MudDude1
         private bool isLoggedInToServer = false;
         private bool isInGame = false;
 
+        frmMain refMainForm;
+
         // ansi escape char
         private const char eC = '\u001b';
 
-        System.Timers.Timer reconnectTimer; 
+        System.Timers.Timer reconnectTimer;
 
-        public Parser()
+        public Parser(frmMain _frmMainRef)
         {
+            refMainForm = _frmMainRef;
             InitClient();
         }
+
+        public bool inGame
+        {
+            get
+            {
+                return isInGame;
+            }
+        }
+        
 
         private void Disconnected(object sender, DisconnectedEventArgs dcea)
         {
             // concatenate strings to form reason, just for logging
-            string error = "";
+            var error = "";
             for (int i = 0; i < dcea.DisconnectReason.Length; i++)
             {
                 error += dcea.DisconnectReason[i] + " ";
@@ -45,9 +57,13 @@ namespace MudDude1
             // unsubscribe from mClient events
             mClient.RaiseDisconnectEvent -= Disconnected;
             mClient.RaiseTextReceivedEvent -= PreParseIncomingData;
+            
 
             // unsubscribe from command processor events
             mProcessor.RaiseSendCommandToHostEvent -= SendCommandToHostFromProcessor;
+
+            // unsub from main form event
+            refMainForm.RaiseConnectDisconnectEvent -= ConnectionTriggerFromUser;
 
             isConnectedToHost = false;
             isLoggedInToServer = false;
@@ -55,9 +71,32 @@ namespace MudDude1
             OnRaiseUpdateUIEvent(this, new UpdateUIEventArgs(isConnectedToHost, isLoggedInToServer, isInGame));
             OnRaiseUpdateOutputEvent(this, new UpdateOutputEventArgs("Disconnected..."));
 
-            // start reconnect timer
-            SetReconnectTimer();
-            reconnectTimer.Start();
+            if (error.Contains("user disconnect"))
+            {
+                error = "";
+                return;
+            }
+            else
+            {
+                // start reconnect timer
+                SetReconnectTimer();
+                reconnectTimer.Start();
+                error = "";
+            }
+        }
+
+        private void ConnectionTriggerFromUser(object sender, ConnectDisconnectEventArgs cdea)
+        {
+            if (cdea.ConnectClicked)
+            {
+                InitClient();
+                TryConnect();
+            }
+            if (cdea.DisconnectClicked)
+            {
+                string[] reason = { "user", "disconnect" };
+                Disconnected(this, new DisconnectedEventArgs(reason));
+            }
         }
 
         private void SetReconnectTimer()
@@ -72,19 +111,18 @@ namespace MudDude1
 
         private void InitClient()
         {
-            if (mClient != null)
-                mClient = null;
-            if (mClient == null)
-                mClient = new MidlandSocketClient();
+            mClient = null;
+            mClient = new MidlandSocketClient();
 
-            if (mProcessor != null)
-                mProcessor = null;
-            if (mProcessor == null)
-                mProcessor = new CmdProcessor(this);
-
+            mProcessor = null;
+            mProcessor = new CmdProcessor(this);
+            
             // subscribe to mClient events
             mClient.RaiseDisconnectEvent += Disconnected;
             mClient.RaiseTextReceivedEvent += PreParseIncomingData;
+
+            
+            refMainForm.RaiseConnectDisconnectEvent += ConnectionTriggerFromUser;
 
             // subscribe to mProcessor events
             mProcessor.RaiseSendCommandToHostEvent += SendCommandToHostFromProcessor;
@@ -95,16 +133,18 @@ namespace MudDude1
             // send IP/port to client
             mClient.SetServerIPAddress(MudDude1.Default.STRING_SERVER_IP);
             mClient.SetServerPortNumber(MudDude1.Default.INT_SERVER_PORT);
-
-            try
+            if (mClient != null)
             {
-                await mClient.ConnectToServer();
-            }
-            catch (Exception ex)
-            {
-                // this should never throw socket exceptions 
-                Console.WriteLine("TryConnectParser: " + ex.ToString());
-            }
+	        try
+	            {
+	                await mClient.ConnectToServer();
+	            }
+	            catch (Exception ex)
+	            {
+	                // this should never throw socket exceptions 
+	                Console.WriteLine("TryConnectParser: " + ex.ToString());
+	            }
+}
         }
 
         // check incoming text for login triggers (triggers here are only used for logging in, they will not execute once in game)
@@ -314,6 +354,7 @@ namespace MudDude1
             if (mClient == null)
                 return;
             
+
             mClient.SendToServer(scea.CompleteCommandToSend + "\r");
         }
 

@@ -11,17 +11,27 @@ using System.Windows.Forms;
 
 namespace MudDude1
 {
+
+    
+
     public partial class frmMain : Form
     {
         frmSettings settings;
-        Parser mParser;
+        private Parser mParser;
 
+        public EventHandler<ConnectDisconnectEventArgs> RaiseConnectDisconnectEvent;
         public frmMain()
         {
             InitializeComponent();
-            
+
+            InitParser();
+
+        }
+
+        private void InitParser()
+        {
             settings = new frmSettings();
-            mParser = new Parser();
+            mParser = new Parser(this);
             mParser.RaiseUpdateOutputEvent += UpdateOutput;
             mParser.RaiseUpdateUIEvent += UpdateUI;
 
@@ -53,7 +63,22 @@ namespace MudDude1
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            mParser.TryConnect();
+            //TODO make a disconnect/connect event to fire from main form
+            if (lblConnected.Visible == true)
+            {
+                OnRaiseConnectDisconnectEvent(this, new ConnectDisconnectEventArgs(false, true));
+                InitParser();
+                if (btnConnect.InvokeRequired)
+                {
+                    btnConnect.Invoke(new Action(() => btnConnect.Text = "Connect"));
+                }
+                else
+                    btnConnect.Text = "Connect";
+            }
+            else
+            {
+                OnRaiseConnectDisconnectEvent(this, new ConnectDisconnectEventArgs(true, false));
+            }
         }
 
         // adds received lines to output window
@@ -61,10 +86,21 @@ namespace MudDude1
         {
             try
             {
+                if (uoea.TextToAdd.Contains("Reconnecting..."))
+                {
+                    if (rtbOutput.InvokeRequired)
+                    {
+                        rtbOutput.Invoke(new Action(() => rtbOutput.Clear()));
+                    }
+                    else
+                    {
+                        rtbOutput.Clear();
+                    }
+                }
                 if (rtbOutput.InvokeRequired)
                 {
                     rtbOutput.Invoke(new Action(() => rtbOutput.AppendText(uoea.TextToAdd)));
-                    rtbOutput.Invoke(new Action(() =>rtbOutput.ScrollToCaret()));
+                    rtbOutput.Invoke(new Action(() => rtbOutput.ScrollToCaret()));
                 }
                 else
                 {
@@ -84,9 +120,15 @@ namespace MudDude1
             if (uuea.IsConnectedToServer)
             {
                 if (lblConnected.InvokeRequired)
+                {
+                    SwapConnectButton();
                     lblConnected.Invoke(new Action(() => lblConnected.Show()));
+                }
                 else
+                {
                     lblConnected.Show();
+                    SwapConnectButton();
+                }
             }
             else
             {
@@ -142,6 +184,27 @@ namespace MudDude1
                 txtConsoleCommand.Clear();
                 txtConsoleCommand.Focus();
                 e.Handled = true;
+            }
+        }
+
+        private void SwapConnectButton()
+        {
+            if (lblConnected.Visible == true)
+            {
+                btnConnect.Text = "Disconnect";
+            }
+            else
+            {
+                btnConnect.Text = "Connect";
+            }
+        }
+
+        private void OnRaiseConnectDisconnectEvent(object sender, ConnectDisconnectEventArgs cdea)
+        {
+            EventHandler<ConnectDisconnectEventArgs> handler = RaiseConnectDisconnectEvent;
+            if (handler != null)
+            {
+                handler(this, cdea);
             }
         }
     }

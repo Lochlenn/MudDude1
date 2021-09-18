@@ -309,15 +309,17 @@ namespace MudDude1
         {
             // disables editable boxes if not enabled in settings
             txtEPForEvil.Enabled = false;
-            if (MudDude1.Default.USE_CUSTOM_EP_EVIL)
-                txtEPForEvil.Enabled = true;
+            if (chbCustomEvil.Checked)
+                {
+                	txtEPForEvil.Enabled = true;
+                }
 
             txtEPforGood.Enabled = false;
-            if (MudDude1.Default.USE_CUSTOM_EP_GOOD)
+            if (chbCustomGood.Checked)
                 txtEPforGood.Enabled = true;
 
             txtEPforNeutral.Enabled = false;
-            if (MudDude1.Default.USE_CUSTOM_EP_NEUTRAL)
+            if (chbCustomNeutral.Checked)
                 txtEPforNeutral.Enabled = true;
         }
 
@@ -332,8 +334,9 @@ namespace MudDude1
         private void CheckAlignmentSettingBools()
         {
             // enable/disable settings if needed
-            if (MudDude1.Default.ALLOW_ANY_ALIGNMENT_CHANGES)
+            if (chbAllowAlignmentChanges.Checked)
             {
+                //SetDefaultAlignmentSettings();
                 // toggleables
                 chbAllowEvil.Enabled = true;
                 chbAllowNeutral.Enabled = true;
@@ -349,16 +352,27 @@ namespace MudDude1
                 txtEPForEvil.Enabled = true;
                 txtEPforNeutral.Enabled = true;
                 txtEPforGood.Enabled = true;
+                SetCustomAlignEnable();
             }
-            else
+
+            if (!chbAllowAlignmentChanges.Checked)
             {
-                // toggleables
+                // uncheck toggles
+                chbAllowEvil.Checked = false;
+                chbAllowNeutral.Checked = false;
+                chbAllowGood.Checked = false;
+                chbAllowLawful.Checked = false;
+                chbAllowUnlawful.Checked = false;
+                chbAllowSaint.Checked = false;
+
+                // disable toggles
                 chbAllowEvil.Enabled = false;
                 chbAllowNeutral.Enabled = false;
                 chbAllowGood.Enabled = false;
                 chbAllowLawful.Enabled = false;
                 chbAllowUnlawful.Enabled = false;
                 chbAllowSaint.Enabled = false;
+                
 
                 // custom values group
                 chbCustomEvil.Enabled = false;
@@ -367,7 +381,7 @@ namespace MudDude1
                 txtEPForEvil.Enabled = false;
                 txtEPforNeutral.Enabled = false;
                 txtEPforGood.Enabled = false;
-                
+                SetCustomAlignEnable();
             }
         }
 
