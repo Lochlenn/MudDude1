@@ -1,19 +1,26 @@
-# MudDude1
-MudDude 1.0
+### **MudDude 1.2**
 
-Configurable replacement for MegaMUD's 'bot'
+**Configurable replacement for MegaMUD's 'bot'**
 
-definable triggers (@, !, #, $, %, ^, *)
+* MAKE SURE TO FORCE ANSI OFF OR THE BOT WONT WORK CORRECTLY *
+(ANSI Parsing will come later)
 
-alignment changes (@good, @neutral, @evil) 
-	evil will be a configurable evil point amount
+**2 definable triggers from a list  (@, !, #, $, %, ^, * )**
 
-adds a life (@life)
+**alignment changes (!good, !neutral, !evil)**
+-NEW full custom alignment settings:
+    - added saint, lawful, unlawful
+    - custom ep values for good evil neutral
+    - allow or disallow any alignment switches you like
 
-retrain stats (@retrain)
+**adds a life (!life)**
 
-check if monster is alive (@home monster)
+**retrain stats (!retrain)**
 
-auto reconnect (optional in future, with configurable delay)
+**check if monster is alive (!home monster)**
+-new monsters can be added to the athome.csv, just follow the format in the file
 
-interactive terminal window (optional in the future)
+**auto reconnect**
+-configurable delay (1 second - 1 hour)
+
+**interactive terminal window** (toggleable in future releases)
